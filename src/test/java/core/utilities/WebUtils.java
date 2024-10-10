@@ -18,7 +18,7 @@ public class WebUtils {
         byte[] screenshot = page.screenshot();
         scenario.attach(screenshot, "image/png", fileName);
 
-        Path screenshotDir = Paths.get("screenshots");
+        Path screenshotDir = Paths.get("Screenshots");
         if (!Files.exists(screenshotDir)) {
             Files.createDirectories(screenshotDir);
         }
