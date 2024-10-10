@@ -49,6 +49,7 @@ public class Hooks {
     public void onTestFailure(Scenario scenario) throws IOException {
         if (scenario.isFailed()) {
             WebUtils.takeScreenshot(page, scenario);
+            log.info("Step failed --> Screenshot taken");
         }
     }
 
