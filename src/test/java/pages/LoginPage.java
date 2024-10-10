@@ -30,9 +30,17 @@ public class LoginPage {
     }
 
     public void login(String username, String password) {
-        page.fill(usernameField, username);
-        page.fill(passwordField, password);
-        page.click(loginButton);
+
+//        page.fill(usernameField, username);
+//        page.fill(passwordField, password);
+//        page.click(loginButton);
+
+        // or
+
+        page.locator(usernameField).fill(username);
+        page.locator(passwordField).fill(password);
+        page.locator(loginButton).click();
+
         log.info("Login attempt by {}", username);
     }
 
