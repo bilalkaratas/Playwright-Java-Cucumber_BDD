@@ -1,0 +1,196 @@
+2024-10-31 15:27:32 [main] INFO  Hooks:24 - ===============================================================
+2024-10-31 15:27:32 [main] INFO  Hooks:25 - |     Demo is Starting...
+2024-10-31 15:27:32 [main] INFO  Hooks:26 - |     Environment : https://www.saucedemo.com/
+2024-10-31 15:27:32 [main] INFO  Hooks:27 - |     Operating System : Mac OS X
+2024-10-31 15:27:32 [main] INFO  Hooks:28 - |     Browser: chrome
+2024-10-31 15:27:32 [main] INFO  Hooks:29 - |     Tested by: Kubilay
+2024-10-31 15:27:32 [main] INFO  Hooks:30 - ===============================================================
+
+2024-10-31 15:27:35 [main] INFO  Hooks:43 - ===============================================================
+2024-10-31 15:27:35 [main] INFO  Hooks:44 - |          Scenario Name: Login Test with page object
+2024-10-31 15:27:35 [main] INFO  Hooks:45 - ===============================================================
+2024-10-31 15:27:35 [main] INFO  LoginPage:29 - Navigated to https://www.saucedemo.com/
+2024-10-31 15:27:35 [main] INFO  LoginPage:44 - Login attempt by standard_user
+2024-10-31 15:27:35 [main] INFO  LoginPage:54 - Login successful!
+2024-10-31 15:27:36 [main] INFO  Hooks:43 - ===============================================================
+2024-10-31 15:27:36 [main] INFO  Hooks:44 - |          Scenario Name: Should not be able to login with invalid credentials
+2024-10-31 15:27:36 [main] INFO  Hooks:45 - ===============================================================
+2024-10-31 15:27:36 [main] INFO  LoginPage:29 - Navigated to https://www.saucedemo.com/
+2024-10-31 15:27:36 [main] INFO  LoginPage:44 - Login attempt by invalid_user
+2024-10-31 15:27:36 [main] INFO  LoginPage:59 - Login failed as expected!
+2024-10-31 15:27:50 [main] INFO  Hooks:24 - ===============================================================
+2024-10-31 15:27:50 [main] INFO  Hooks:25 - |     Demo is Starting...
+2024-10-31 15:27:50 [main] INFO  Hooks:26 - |     Environment : https://www.saucedemo.com/
+2024-10-31 15:27:50 [main] INFO  Hooks:27 - |     Operating System : Mac OS X
+2024-10-31 15:27:50 [main] INFO  Hooks:28 - |     Browser: chrome
+2024-10-31 15:27:50 [main] INFO  Hooks:29 - |     Tested by: Kubilay
+2024-10-31 15:27:50 [main] INFO  Hooks:30 - ===============================================================
+
+2024-10-31 15:27:52 [main] INFO  Hooks:43 - ===============================================================
+2024-10-31 15:27:52 [main] INFO  Hooks:44 - |          Scenario Name: Login Test with page object
+2024-10-31 15:27:52 [main] INFO  Hooks:45 - ===============================================================
+2024-10-31 15:27:52 [main] INFO  LoginPage:29 - Navigated to https://www.saucedemo.com/
+2024-10-31 15:27:52 [main] INFO  LoginPage:44 - Login attempt by standard_user
+2024-10-31 15:27:52 [main] INFO  LoginPage:54 - Login successful!
+2024-10-31 15:27:53 [main] INFO  Hooks:43 - ===============================================================
+2024-10-31 15:27:53 [main] INFO  Hooks:44 - |          Scenario Name: Should not be able to login with invalid credentials
+2024-10-31 15:27:53 [main] INFO  Hooks:45 - ===============================================================
+2024-10-31 15:27:53 [main] INFO  LoginPage:29 - Navigated to https://www.saucedemo.com/
+2024-10-31 15:27:53 [main] INFO  LoginPage:44 - Login attempt by invalid_user
+2024-10-31 15:27:53 [main] INFO  LoginPage:59 - Login failed as expected!
+2024-11-02 12:29:42 [main] INFO  Hooks:24 - ===============================================================
+2024-11-02 12:29:42 [main] INFO  Hooks:25 - |     Demo is Starting...
+2024-11-02 12:29:42 [main] INFO  Hooks:26 - |     Environment : https://www.saucedemo.com/
+2024-11-02 12:29:42 [main] INFO  Hooks:27 - |     Operating System : Mac OS X
+2024-11-02 12:29:42 [main] INFO  Hooks:28 - |     Browser: chrome
+2024-11-02 12:29:42 [main] INFO  Hooks:29 - |     Tested by: Kubilay
+2024-11-02 12:29:42 [main] INFO  Hooks:30 - ===============================================================
+
+2024-11-02 12:29:50 [main] INFO  Hooks:43 - ===============================================================
+2024-11-02 12:29:50 [main] INFO  Hooks:44 - |          Scenario Name: Login Test with page object
+2024-11-02 12:29:50 [main] INFO  Hooks:45 - ===============================================================
+2024-11-02 12:29:50 [main] INFO  LoginPage:29 - Navigated to https://www.saucedemo.com/
+2024-11-02 12:29:50 [main] INFO  LoginPage:44 - Login attempt by standard_user
+2024-11-02 12:29:50 [main] INFO  LoginPage:54 - Login successful!
+2024-11-02 12:29:51 [main] INFO  Hooks:43 - ===============================================================
+2024-11-02 12:29:51 [main] INFO  Hooks:44 - |          Scenario Name: Should not be able to login with invalid credentials
+2024-11-02 12:29:51 [main] INFO  Hooks:45 - ===============================================================
+2024-11-02 12:29:52 [main] INFO  LoginPage:29 - Navigated to https://www.saucedemo.com/
+2024-11-02 12:29:52 [main] INFO  LoginPage:44 - Login attempt by invalid_user
+2024-11-02 12:29:52 [main] INFO  LoginPage:59 - Login failed as expected!
+2024-11-02 12:29:59 [main] INFO  Hooks:24 - ===============================================================
+2024-11-02 12:29:59 [main] INFO  Hooks:25 - |     Demo is Starting...
+2024-11-02 12:29:59 [main] INFO  Hooks:26 - |     Environment : https://www.saucedemo.com/
+2024-11-02 12:29:59 [main] INFO  Hooks:27 - |     Operating System : Mac OS X
+2024-11-02 12:29:59 [main] INFO  Hooks:28 - |     Browser: chrome
+2024-11-02 12:29:59 [main] INFO  Hooks:29 - |     Tested by: Kubilay
+2024-11-02 12:29:59 [main] INFO  Hooks:30 - ===============================================================
+
+2024-11-02 12:30:00 [main] INFO  Hooks:43 - ===============================================================
+2024-11-02 12:30:00 [main] INFO  Hooks:44 - |          Scenario Name: Login Test with page object
+2024-11-02 12:30:00 [main] INFO  Hooks:45 - ===============================================================
+2024-11-02 12:30:01 [main] INFO  LoginPage:29 - Navigated to https://www.saucedemo.com/
+2024-11-02 12:30:01 [main] INFO  LoginPage:44 - Login attempt by standard_user
+2024-11-02 12:30:01 [main] INFO  LoginPage:54 - Login successful!
+2024-11-02 12:30:13 [main] INFO  Hooks:24 - ===============================================================
+2024-11-02 12:30:13 [main] INFO  Hooks:25 - |     Demo is Starting...
+2024-11-02 12:30:13 [main] INFO  Hooks:26 - |     Environment : https://www.saucedemo.com/
+2024-11-02 12:30:13 [main] INFO  Hooks:27 - |     Operating System : Mac OS X
+2024-11-02 12:30:13 [main] INFO  Hooks:28 - |     Browser: chrome
+2024-11-02 12:30:13 [main] INFO  Hooks:29 - |     Tested by: Kubilay
+2024-11-02 12:30:13 [main] INFO  Hooks:30 - ===============================================================
+
+2024-11-02 12:30:15 [main] INFO  Hooks:43 - ===============================================================
+2024-11-02 12:30:15 [main] INFO  Hooks:44 - |          Scenario Name: Login Test with page object
+2024-11-02 12:30:15 [main] INFO  Hooks:45 - ===============================================================
+2024-11-02 12:30:16 [main] INFO  LoginPage:29 - Navigated to https://www.saucedemo.com/
+2024-11-02 12:30:16 [main] INFO  LoginPage:44 - Login attempt by standard_user
+2024-11-02 12:30:16 [main] INFO  LoginPage:54 - Login successful!
+2024-11-02 12:30:24 [main] INFO  Hooks:24 - ===============================================================
+2024-11-02 12:30:24 [main] INFO  Hooks:25 - |     Demo is Starting...
+2024-11-02 12:30:24 [main] INFO  Hooks:26 - |     Environment : https://www.saucedemo.com/
+2024-11-02 12:30:24 [main] INFO  Hooks:27 - |     Operating System : Mac OS X
+2024-11-02 12:30:24 [main] INFO  Hooks:28 - |     Browser: chrome
+2024-11-02 12:30:24 [main] INFO  Hooks:29 - |     Tested by: Kubilay
+2024-11-02 12:30:24 [main] INFO  Hooks:30 - ===============================================================
+
+2024-11-02 12:30:26 [main] INFO  Hooks:43 - ===============================================================
+2024-11-02 12:30:26 [main] INFO  Hooks:44 - |          Scenario Name: Login Test with page object
+2024-11-02 12:30:26 [main] INFO  Hooks:45 - ===============================================================
+2024-11-02 12:30:26 [main] INFO  LoginPage:29 - Navigated to https://www.saucedemo.com/
+2024-11-02 12:30:26 [main] INFO  LoginPage:44 - Login attempt by standard_user
+2024-11-02 12:30:28 [main] INFO  LoginPage:54 - Login successful!
+2024-11-02 12:30:45 [main] INFO  Hooks:24 - ===============================================================
+2024-11-02 12:30:45 [main] INFO  Hooks:25 - |     Demo is Starting...
+2024-11-02 12:30:45 [main] INFO  Hooks:26 - |     Environment : https://www.saucedemo.com/
+2024-11-02 12:30:45 [main] INFO  Hooks:27 - |     Operating System : Mac OS X
+2024-11-02 12:30:45 [main] INFO  Hooks:28 - |     Browser: chrome
+2024-11-02 12:30:45 [main] INFO  Hooks:29 - |     Tested by: Kubilay
+2024-11-02 12:30:45 [main] INFO  Hooks:30 - ===============================================================
+
+2024-11-02 12:30:48 [main] INFO  Hooks:43 - ===============================================================
+2024-11-02 12:30:48 [main] INFO  Hooks:44 - |          Scenario Name: Login Test with page object
+2024-11-02 12:30:48 [main] INFO  Hooks:45 - ===============================================================
+2024-11-02 12:30:48 [main] INFO  LoginPage:29 - Navigated to https://www.saucedemo.com/
+2024-11-02 12:30:48 [main] INFO  LoginPage:44 - Login attempt by standard_user
+2024-11-02 12:30:49 [main] INFO  LoginPage:54 - Login successful!
+2024-11-02 12:31:01 [main] INFO  Hooks:24 - ===============================================================
+2024-11-02 12:31:01 [main] INFO  Hooks:25 - |     Demo is Starting...
+2024-11-02 12:31:01 [main] INFO  Hooks:26 - |     Environment : https://www.saucedemo.com/
+2024-11-02 12:31:01 [main] INFO  Hooks:27 - |     Operating System : Mac OS X
+2024-11-02 12:31:01 [main] INFO  Hooks:28 - |     Browser: chrome
+2024-11-02 12:31:01 [main] INFO  Hooks:29 - |     Tested by: Kubilay
+2024-11-02 12:31:01 [main] INFO  Hooks:30 - ===============================================================
+
+2024-11-02 12:31:03 [main] INFO  Hooks:43 - ===============================================================
+2024-11-02 12:31:03 [main] INFO  Hooks:44 - |          Scenario Name: Login Test with page object
+2024-11-02 12:31:03 [main] INFO  Hooks:45 - ===============================================================
+2024-11-02 12:31:03 [main] INFO  LoginPage:29 - Navigated to https://www.saucedemo.com/
+2024-11-02 12:31:03 [main] INFO  LoginPage:44 - Login attempt by standard_user
+2024-11-02 12:31:05 [main] INFO  LoginPage:54 - Login successful!
+2024-11-02 12:31:17 [main] INFO  Hooks:24 - ===============================================================
+2024-11-02 12:31:17 [main] INFO  Hooks:25 - |     Demo is Starting...
+2024-11-02 12:31:17 [main] INFO  Hooks:26 - |     Environment : https://www.saucedemo.com/
+2024-11-02 12:31:17 [main] INFO  Hooks:27 - |     Operating System : Mac OS X
+2024-11-02 12:31:17 [main] INFO  Hooks:28 - |     Browser: chrome
+2024-11-02 12:31:17 [main] INFO  Hooks:29 - |     Tested by: Kubilay
+2024-11-02 12:31:17 [main] INFO  Hooks:30 - ===============================================================
+
+2024-11-02 12:31:19 [main] INFO  Hooks:43 - ===============================================================
+2024-11-02 12:31:19 [main] INFO  Hooks:44 - |          Scenario Name: Login Test with page object
+2024-11-02 12:31:19 [main] INFO  Hooks:45 - ===============================================================
+2024-11-02 12:31:20 [main] INFO  LoginPage:29 - Navigated to https://www.saucedemo.com/
+2024-11-02 12:31:20 [main] INFO  LoginPage:44 - Login attempt by standard_user
+2024-11-02 12:31:22 [main] INFO  LoginPage:54 - Login successful!
+2024-11-02 12:31:50 [main] INFO  Hooks:24 - ===============================================================
+2024-11-02 12:31:50 [main] INFO  Hooks:25 - |     Demo is Starting...
+2024-11-02 12:31:50 [main] INFO  Hooks:26 - |     Environment : https://www.saucedemo.com/
+2024-11-02 12:31:50 [main] INFO  Hooks:27 - |     Operating System : Mac OS X
+2024-11-02 12:31:50 [main] INFO  Hooks:28 - |     Browser: chrome
+2024-11-02 12:31:50 [main] INFO  Hooks:29 - |     Tested by: Bilal
+2024-11-02 12:31:50 [main] INFO  Hooks:30 - ===============================================================
+
+2024-11-02 12:31:52 [main] INFO  Hooks:43 - ===============================================================
+2024-11-02 12:31:52 [main] INFO  Hooks:44 - |          Scenario Name: Login Test with page object
+2024-11-02 12:31:52 [main] INFO  Hooks:45 - ===============================================================
+2024-11-02 12:31:53 [main] INFO  LoginPage:29 - Navigated to https://www.saucedemo.com/
+2024-11-02 12:31:53 [main] INFO  LoginPage:44 - Login attempt by standard_user
+2024-11-02 12:31:55 [main] INFO  LoginPage:54 - Login successful!
+2024-11-02 12:31:56 [main] INFO  Hooks:43 - ===============================================================
+2024-11-02 12:31:56 [main] INFO  Hooks:44 - |          Scenario Name: Should not be able to login with invalid credentials
+2024-11-02 12:31:56 [main] INFO  Hooks:45 - ===============================================================
+2024-11-02 12:31:56 [main] INFO  LoginPage:29 - Navigated to https://www.saucedemo.com/
+2024-11-02 12:31:56 [main] INFO  LoginPage:44 - Login attempt by invalid_user
+2024-11-02 12:31:56 [main] INFO  LoginPage:59 - Login failed as expected!
+2024-11-02 12:32:19 [main] INFO  Hooks:24 - ===============================================================
+2024-11-02 12:32:19 [main] INFO  Hooks:25 - |     Demo is Starting...
+2024-11-02 12:32:19 [main] INFO  Hooks:26 - |     Environment : https://www.saucedemo.com/
+2024-11-02 12:32:19 [main] INFO  Hooks:27 - |     Operating System : Mac OS X
+2024-11-02 12:32:19 [main] INFO  Hooks:28 - |     Browser: chrome
+2024-11-02 12:32:19 [main] INFO  Hooks:29 - |     Tested by: Bilal
+2024-11-02 12:32:19 [main] INFO  Hooks:30 - ===============================================================
+
+2024-11-02 12:32:21 [main] INFO  Hooks:43 - ===============================================================
+2024-11-02 12:32:21 [main] INFO  Hooks:44 - |          Scenario Name: Login Test with page object
+2024-11-02 12:32:21 [main] INFO  Hooks:45 - ===============================================================
+2024-11-02 12:32:22 [main] INFO  LoginPage:29 - Navigated to https://www.saucedemo.com/
+2024-11-02 12:32:22 [main] INFO  LoginPage:44 - Login attempt by standard_user
+2024-11-02 12:32:24 [main] INFO  LoginPage:54 - Login successful!
+2024-11-02 12:32:24 [main] INFO  Hooks:43 - ===============================================================
+2024-11-02 12:32:24 [main] INFO  Hooks:44 - |          Scenario Name: Should not be able to login with invalid credentials
+2024-11-02 12:32:24 [main] INFO  Hooks:45 - ===============================================================
+2024-11-02 12:32:25 [main] INFO  LoginPage:29 - Navigated to https://www.saucedemo.com/
+2024-11-02 12:32:25 [main] INFO  LoginPage:44 - Login attempt by invalid_user
+2024-11-02 12:32:25 [main] INFO  LoginPage:59 - Login failed as expected!
+2024-11-02 12:47:18 [main] INFO  Hooks:24 - ===============================================================
+2024-11-02 12:47:18 [main] INFO  Hooks:25 - |     Demo is Starting...
+2024-11-02 12:47:18 [main] INFO  Hooks:26 - |     Environment : https://www.saucedemo.com/
+2024-11-02 12:47:18 [main] INFO  Hooks:27 - |     Operating System : Mac OS X
+2024-11-02 12:47:18 [main] INFO  Hooks:28 - |     Browser: chrome
+2024-11-02 12:47:18 [main] INFO  Hooks:29 - |     Tested by: Bilal
+2024-11-02 12:47:18 [main] INFO  Hooks:30 - ===============================================================
+
+2024-11-02 12:47:21 [main] INFO  Hooks:43 - ===============================================================
+2024-11-02 12:47:21 [main] INFO  Hooks:44 - |          Scenario Name: Verify successful processing according to FIFO LRM
+2024-11-02 12:47:21 [main] INFO  Hooks:45 - ===============================================================
+2024-11-02 12:47:21 [main] INFO  Hooks:52 - Step failed --> Screenshot taken
