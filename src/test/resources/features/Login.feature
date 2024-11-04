@@ -6,6 +6,7 @@ Feature: Login functionality
 
   Scenario: Login Test with page object
     When I login with valid credentials
+    And I wait for 2 seconds
     Then I should see the successful login message
     And I should see the title "Products"
 
