@@ -1,0 +1,158 @@
+class Transaction {
+    private String date;
+    private String transactionType;
+    private int shares;
+    private double price;
+
+    public Transaction(String date, String transactionType, int shares, double price) {
+        this.date = date;
+        this.transactionType = transactionType;
+        this.shares = shares;
+        this.price = price;
+    }
+
+    // Getters and setters
+    public String getTransactionType() { return transactionType; }
+    public int getShares() { return shares; }
+    public double getPrice() { return price; }
+    public void setShares(int shares) { this.shares = shares; }
+}
+
+class SellTransactionResult {
+    private int sharesSold;
+    private double costBasis;
+    private List<Transaction> remainingTransactions;
+    private String processingMethod;
+
+    public SellTransactionResult(int sharesSold, double costBasis, List<Transaction> remainingTransactions, String processingMethod) {
+        this.sharesSold = sharesSold;
+        this.costBasis = costBasis;
+        this.remainingTransactions = remainingTransactions;
+        this.processingMethod = processingMethod;
+    }
+
+    // Getters
+    public int getRemainingShares() {
+        return remainingTransactions.stream().mapToInt(Transaction::getShares).sum();
+    }
+
+    public String getProcessingMethod() { return processingMethod; }
+    public double getCostBasis() { return costBasis; }
+    public int getSharesSold() { return sharesSold; }
+}
+
+
+
+
+Feature: Security Sell Transaction with FIFO Logic
+
+  Scenario: Simple sell transaction using FIFO
+    Given an account with ID "1001" and a security "TRD"
+    And the account holds the following transactions:
+      | Date       | Transaction Type | Shares | Price |
+      | 06/01/2024 | Buy              | 10     | 100   |
+      | 06/02/2024 | Buy              | 35     | 105   |
+    When a sell order is placed for 30 shares on "06/03/2024" using FIFO
+    Then the system should process the sell using FIFO order
+    And the remaining shares should be 15
+    And the sell transaction should reflect the FIFO cost basis
+
+
+
+import static org.junit.Assert.assertEquals;
+import java.util.*;
+
+import io.cucumber.java.en.Given;
+import io.cucumber.java.en.When;
+import io.cucumber.java.en.Then;
+
+public class SellTransactionSteps {
+
+    private String accountId;
+    private String security;
+    private List<Transaction> transactions = new ArrayList<>();
+    private SellTransactionResult sellResult;
+
+    @Given("an account with ID {string} and a security {string}")
+    public void an_account_with_ID_and_a_security(String accountId, String security) {
+        this.accountId = accountId;
+        this.security = security;
+    }
+
+    @Given("the account holds the following transactions:")
+    public void the_account_holds_the_following_transactions(io.cucumber.datatable.DataTable dataTable) {
+        List<Map<String, String>> rows = dataTable.asMaps(String.class, String.class);
+        for (Map<String, String> row : rows) {
+            String date = row.get("Date");
+            String type = row.get("Transaction Type");
+            int shares = Integer.parseInt(row.get("Shares"));
+            double price = Double.parseDouble(row.get("Price"));
+
+            transactions.add(new Transaction(date, type, shares, price));
+        }
+    }
+
+    @When("a sell order is placed for {int} shares on {string} using FIFO")
+    public void a_sell_order_is_placed_for_shares_on_using_FIFO(int sharesToSell, String sellDate) {
+        sellResult = processSellOrder(transactions, sharesToSell, sellDate);
+    }
+
+    @Then("the system should process the sell using FIFO order")
+    public void the_system_should_process_the_sell_using_FIFO_order() {
+        // This step validates that FIFO was applied correctly.
+        assertEquals("FIFO", sellResult.getProcessingMethod());
+    }
+
+    @Then("the remaining shares should be {int}")
+    public void the_remaining_shares_should_be(int expectedRemainingShares) {
+        assertEquals(expectedRemainingShares, sellResult.getRemainingShares());
+    }
+
+    @Then("the sell transaction should reflect the FIFO cost basis")
+    public void the_sell_transaction_should_reflect_the_FIFO_cost_basis() {
+        double expectedCostBasis = calculateExpectedFIFOCost(transactions, sellResult.getSharesSold());
+        assertEquals(expectedCostBasis, sellResult.getCostBasis(), 0.01);
+    }
+
+    // Helper method to simulate sell processing and apply FIFO
+    private SellTransactionResult processSellOrder(List<Transaction> transactions, int sharesToSell, String sellDate) {
+        List<Transaction> fifoTransactions = new ArrayList<>(transactions);
+        int sharesSold = 0;
+        double totalCost = 0.0;
+
+        Iterator<Transaction> iterator = fifoTransactions.iterator();
+        while (iterator.hasNext() && sharesSold < sharesToSell) {
+            Transaction transaction = iterator.next();
+            if (transaction.getTransactionType().equals("Buy")) {
+                int availableShares = transaction.getShares();
+                int sharesToTake = Math.min(availableShares, sharesToSell - sharesSold);
+                sharesSold += sharesToTake;
+                totalCost += sharesToTake * transaction.getPrice();
+                
+                // Update the transaction shares or remove if fully consumed
+                transaction.setShares(availableShares - sharesToTake);
+                if (transaction.getShares() == 0) {
+                    iterator.remove();
+                }
+            }
+        }
+
+        // Return the result with calculated remaining shares and cost basis
+        return new SellTransactionResult(sharesSold, totalCost, fifoTransactions, "FIFO");
+    }
+
+    private double calculateExpectedFIFOCost(List<Transaction> transactions, int sharesSold) {
+        double totalCost = 0.0;
+        int sharesProcessed = 0;
+        
+        for (Transaction transaction : transactions) {
+if (transaction.getTransactionType().equals("Buy") && sharesProcessed < sharesSold) {
+                int availableShares = transaction.getShares();
+                int sharesToTake = Math.min(availableShares, sharesSold - sharesProcessed);
+                sharesProcessed += sharesToTake;
+                totalCost += sharesToTake * transaction.getPrice();
+            }
+        }
+        return totalCost;
+    }
+}
