@@ -156,3 +156,143 @@ if (transaction.getTransactionType().equals("Buy") && sharesProcessed < sharesSo
         return totalCost;
     }
 }
+
+
+
+
+
+ = == = = = = = == = = = == = = = == = = = = = = 
+
+
+
+To connect your Java code with Oracle Database (e.g., for inserting test data or validating results), you'll need to use JDBC (Java Database Connectivity) along with the Oracle JDBC driver. This setup will allow your Cucumber tests to interact with the database, run SQL queries, and verify results against Oracle Developer.
+
+### Step 1: Add Oracle JDBC Driver to Your Project
+1. Download the Oracle JDBC driver (ojdbc8.jar for Java 8 or ojdbc10.jar for Java 11 or later) from the [Oracle website](https://www.oracle.com/database/technologies/appdev/jdbc-downloads.html).
+2. Add the driver to your project:
+   - If you’re using Maven, add the driver as a dependency in pom.xml:
+     xml
+     <dependency>
+       <groupId>com.oracle.database.jdbc</groupId>
+       <artifactId>ojdbc8</artifactId> <!-- Or ojdbc10 for Java 11+ -->
+       <version>19.8.0.0</version>
+     </dependency>
+     
+   - If not using Maven, add the .jar file to your classpath manually.
+
+### Step 2: Configure Database Connection in Step Definitions
+Create a database connection setup in your step definitions file or a utility class.
+
+#### Database Connection Utility Class (DatabaseConnection.java)
+
+java
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.SQLException;
+
+public class DatabaseConnection {
+
+    private static final String DB_URL = "jdbc:oracle:thin:@//host:port/service_name";
+    private static final String USER = "your_username";
+    private static final String PASSWORD = "your_password";
+
+    public static Connection getConnection() throws SQLException {
+        return DriverManager.getConnection(DB_URL, USER, PASSWORD);
+    }
+}
+
+
+- Replace host, port, and service_name with your Oracle database details.
+- Set USER and PASSWORD to the database credentials.
+
+### Step 3: Add Database Operations in Step Definitions
+In your SellTransactionSteps.java step definition file, use DatabaseConnection to connect to Oracle and execute SQL statements.
+
+#### Example: Modifying Step Definitions to Interact with Oracle
+
+java
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
+import io.cucumber.java.en.Given;
+
+public class SellTransactionSteps {
+
+    private Connection connection;
+
+    // Connect to the database before each test scenario
+    @Given("a connection to the database is established")
+    public void connectToDatabase() throws SQLException {
+        connection = DatabaseConnection.getConnection();
+    }
+
+    @Given("an account with ID {string} and a security {string}")
+    public void an_account_with_ID_and_a_security(String accountId, String security) throws SQLException {
+        // Insert account and security setup into Oracle
+        String insertAccountSQL = "INSERT INTO ACCOUNT_MASTER (ACCT_ID, SECURITY) VALUES (?, ?)";
+        try (PreparedStatement pstmt = connection.prepareStatement(insertAccountSQL)) {
+            pstmt.setString(1, accountId);
+            pstmt.setString(2, security);
+            pstmt.executeUpdate();
+        }
+    }
+
+    @Given("the account holds the following transactions:")
+    public void the_account_holds_the_following_transactions(io.cucumber.datatable.DataTable dataTable) throws SQLException {
+        String insertTransactionSQL = "INSERT INTO TRANSACTIONS (DATE, TYPE, SHARES, PRICE) VALUES (?, ?, ?, ?)";
+        try (PreparedStatement pstmt = connection.prepareStatement(insertTransactionSQL)) {
+            for (Map<String, String> row : dataTable.asMaps(String.class, String.class)) {
+                pstmt.setString(1, row.get("Date"));
+                pstmt.setString(2, row.get("Transaction Type"));
+                pstmt.setInt(3, Integer.parseInt(row.get("Shares")));
+                pstmt.setDouble(4, Double.parseDouble(row.get("Price")));
+                pstmt.addBatch();
+            }
+            pstmt.executeBatch();
+        }
+    }
+
+    // Closing the connection after each scenario
+    @After
+    public void closeConnection() throws SQLException {
+        if (connection != null && !connection.isClosed()) {
+            connection.close();
+        }
+    }
+}
+
+
+### Explanation
+
+- *Connecting to Oracle*: The connectToDatabase method establishes a connection using the DatabaseConnection utility.
+- *Executing SQL Statements*:
+  - The an_account_with_ID_and_a_security step inserts account data into Oracle.
+  - The the_account_holds_the_following_transactions step uses a batch insert to populate the TRANSACTIONS table with transaction data from the Cucumber data table.
+- *Closing the Connection*: The @After hook closes the database connection after each scenario.
+
+### Step 4: Running Cucumber Tests
+1. *Oracle Developer*: Make sure Oracle Developer or your database server is running and accessible.
+2. *Run Cucumber Tests*: Execute the Cucumber tests from your IDE or via command line. The tests will connect to the Oracle database, insert data, and validate the results as per your Cucumber scenarios.
+
+### Step 5: Querying Results (Optional)
+If you need to validate results from Oracle, use SELECT queries in your step definitions and assert the results against expected values:
+
+java
+@Then("the remaining shares should be {int}")
+public void the_remaining_shares_should_be(int expectedRemainingShares) throws SQLException {
+    String query = "SELECT SUM(SHARES) FROM TRANSACTIONS WHERE ACCT_ID = ? AND SECURITY = ?";
+    try (PreparedStatement pstmt = connection.prepareStatement(query)) {
+        pstmt.setString(1, accountId);
+        pstmt.setString(2, security);
+        ResultSet rs = pstmt.executeQuery();
+        if (rs.next()) {
+            int actualRemainingShares = rs.getInt(1);
+            assertEquals(expectedRemainingShares, actualRemainingShares);
+        }
+    }
+}
+
+
+### Notes
+- Ensure all database operations have exception handling to capture any SQL errors.
+- This approach allows integration with Oracle Developer for a full end-to-end test, verifying both data insertion and result validation directly from the Oracle Database.
