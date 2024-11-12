@@ -293,6 +293,70 @@ public void the_remaining_shares_should_be(int expectedRemainingShares) throws S
 }
 
 
+To create step definitions in Java for the Cucumber feature file shown in the image, you need to map each step in the feature file to a corresponding Java method. Below is an example of how you can implement the step definitions for this feature:
+
+### Step Definition Class (`TP_FIFO_Sell_ValidationSteps.java`):
+
+```java
+import io.cucumber.java.en.Given;
+import io.cucumber.java.en.When;
+import io.cucumber.java.en.Then;
+import java.util.List;
+
+public class TP_FIFO_Sell_ValidationSteps {
+
+    @Given("^User have the setup data in the Database Table$")
+    public void user_have_setup_data_in_database(List<String> tableNames) {
+        // Code to check if the setup data exists in the given tables
+        System.out.println("Setup data exists in tables: " + tableNames);
+    }
+
+    @Given("^I have the following sequence of events:$")
+    public void i_have_sequence_of_events(List<List<String>> events) {
+        // Code to process or validate the sequence of events
+        for (List<String> event : events) {
+            System.out.println("Event: " + event);
+        }
+    }
+
+    @When("^I put following message in the Queue \"([^\"]*)\"$")
+    public void i_put_message_in_queue(String message) {
+        // Code to simulate putting a message in the queue
+        System.out.println("Message put in queue: " + message);
+    }
+
+    @When("^I run TP with (\\d+) thread$")
+    public void i_run_tp_with_threads(int threads) {
+        // Code to simulate running TP with a given number of threads
+        System.out.println("Running TP with " + threads + " thread(s)");
+    }
+
+    @Then("^the expected data should be in the following tables:$")
+    public void expected_data_should_be_in_tables(List<String> tableNames) {
+        // Code to validate that the expected data is present in these tables
+        System.out.println("Expected data should be in tables: " + tableNames);
+    }
+}
+```
+
+### Explanation:
+1. **Imports**: The `io.cucumber.java.en.*` package provides annotations like `@Given`, `@When`, and `@Then` to map steps from your feature file.
+2. **Step Definitions**:
+   - **@Given**: Defines steps that set up preconditions, such as checking if setup data exists in specific database tables.
+   - **@When**: Defines actions that are performed during the test, such as putting a message into a queue or running TP with a certain number of threads.
+   - **@Then**: Defines assertions or validations, such as checking if the expected data is present in specific database tables.
+
+### Notes:
+- The parameters passed into each method (e.g., `List<String>`, `String`, `int`) correspond to the values defined in your feature file.
+- The `List<List<String>>` type is used for handling tables of data (like sequences of events).
+
+Make sure that your project is correctly set up with Cucumber dependencies and that this step definition class is linked to your feature file.
+
+Sources
+[1] image.jpg https://pplx-res.cloudinary.com/image/upload/v1731443066/user_uploads/cavqpmiey/image.jpg
+
+
+
 ### Notes
 - Ensure all database operations have exception handling to capture any SQL errors.
 - This approach allows integration with Oracle Developer for a full end-to-end test, verifying both data insertion and result validation directly from the Oracle Database.
