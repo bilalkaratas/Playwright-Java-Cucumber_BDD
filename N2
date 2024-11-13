@@ -129,3 +129,16 @@ By integrating JDBC into your Cucumber step definitions, you can interact with y
 
 Sources
 [1] image.jpg https://pplx-res.cloudinary.com/image/upload/v1731443066/user_uploads/cavqpmiey/image.jpg
+
+
+String checkTableSQL = "SELECT table_name FROM information_schema.tables WHERE table_name = '" + tableName + "'";
+        try (Statement statement = connection.createStatement();
+             ResultSet resultSet = statement.executeQuery(checkTableSQL)) {
+            if (!resultSet.next()) {
+                throw new AssertionError("Table " + tableName + " does not exist.");
+            }
+        }
+    }
+
+şunu da koyabilir misin? Tablelari create edip etmediğini çek edeceksin
+
